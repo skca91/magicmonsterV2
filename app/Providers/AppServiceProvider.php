@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Passport\Passport;
+
 use Illuminate\Support\ServiceProvider;
+use Laravel\Passport\PassportServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
