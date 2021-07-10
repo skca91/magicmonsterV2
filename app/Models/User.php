@@ -17,10 +17,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $table = 'users';
+
     protected $fillable = [
         'username',
         'name',
-        'email',
         'password',
         'exp',
     ];
@@ -32,15 +34,17 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-       // 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function avatar(){
+
+        return $this->belongsTo(Avatar::class);
+
+    }
+
+    public function victim(){
+
+        return $this->hasOne(Victim::class);
+        
+    }
 }
