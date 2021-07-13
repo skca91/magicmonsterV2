@@ -24,11 +24,27 @@ class Avatar extends Model
     }
 
     public function profile(){
+
         return $this->hasOne(Profile::class);
+
     }
 
     public function tournamentRegistered(){
+
         return $this->hasOne(TournamentRegistered::class);
+    }
+
+    public function addAvatarInTheModel($request){
+
+        $nickname = $request->input('nickname');
+
+        $avatar = New Avatar();
+        $avatar->nickname = $nickname;
+        $avatar->exp = 0;
+        $avatar->save();
+
+        return $avatar;
+
     }
 
 }

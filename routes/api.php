@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\VictimController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +21,7 @@ Route::group([
         Route::get('user', [AuthController::class, 'user'])->name('user');
     });
 });
+
+Route::post('/victima', [VictimController::class, 'addVictim']);
+
+Route::post('/avatar', [AvatarController::class, 'addAvatar']);
