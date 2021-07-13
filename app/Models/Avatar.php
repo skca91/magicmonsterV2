@@ -27,4 +27,8 @@ class Avatar extends Model
         return $this->hasOne(Profile::class);
     }
 
+    public function tournamentRegistered(){
+        return $this->hasOne(TournamentRegistered::class);
+    }
+
 }

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tournament extends Model
+class LeagueProgress extends Model
 {
     use HasFactory;
 
-    public function tournamentRegistered(){
-        return $this->hasOne(TournamentRegistered::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

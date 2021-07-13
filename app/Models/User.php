@@ -63,4 +63,16 @@ class User extends Authenticatable
     public function medal(){
         return $this->hasOne(Medal::class);
     }
+
+    public function leagueProgress(){
+        return $this->hasOne(LeagueProgress::class);
+    }
+
+    public function historicalMedal(){
+        return $this->hasOne(HistoricalMedal::class);
+    }
+
+    public function tournamentRegistered(){
+        return $this->hasOne(TournamentRegistered::class);
+    }
 }

@@ -16,4 +16,8 @@ class Gym extends Model
     public function medal(){
         return $this->hasOne(Medal::class);
     }
+
+    public function historicalMedal(){
+        return $this->hasOne(HistoricalMedal::class);
+    }
 }
