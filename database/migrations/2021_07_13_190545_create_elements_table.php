@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAvatarIdToUsersTable extends Migration
+class CreateElementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddAvatarIdToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            
-            $table->integer('avatar_id')->unsigned()->index();
-            $table->foreign('avatar_id')->references('id')->on('avatars')->onDelete('cascade');
+        Schema::create('elements', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('beat');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +28,6 @@ class AddAvatarIdToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-          
-        });
+        Schema::dropIfExists('elements');
     }
 }

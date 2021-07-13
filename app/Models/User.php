@@ -47,4 +47,20 @@ class User extends Authenticatable
         return $this->hasOne(Victim::class);
         
     }
+
+    public function league(){
+        return $this->hasOne(League::class);
+    }
+
+    public function ranking(){
+        return $this->hasOne(Ranking::class);
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
+
+    public function medal(){
+        return $this->hasOne(Medal::class);
+    }
 }
