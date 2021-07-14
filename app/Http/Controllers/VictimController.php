@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Avatar;
-use App\Models\Mascot;
 use App\Models\User;
 use App\Models\Victim;
 
