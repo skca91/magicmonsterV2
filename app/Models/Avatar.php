@@ -34,17 +34,4 @@ class Avatar extends Model
         return $this->hasOne(TournamentRegistered::class);
     }
 
-    public function addAvatarInTheModel($request){
-
-        $nickname = $request->input('nickname');
-
-        $avatar = New Avatar();
-        $avatar->nickname = $nickname;
-        $avatar->exp = 0;
-        $avatar->save();
-
-        return $avatar;
-
-    }
-
 }

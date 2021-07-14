@@ -8,22 +8,23 @@ use Illuminate\Http\Request;
 
 class AvatarController extends Controller
 {
-    protected $avatar;
 
-    public function __construct(Avatar $avatar){
+    public function __construct(){
         $this->middleware('auth');
-        $this->avatar = $avatar;
     }
 
     public function addAvatar(Request $request){
-
-        //$user = Auth::user();
 
         $this->validate($request, [
             'nickname' => 'unique:avatars|min:6'
         ]);
 
-        $avatar = $this->avatar->addAvatarInTheModel($request);
+        $nickname = $request->input('nickname');
+
+        $avatar = New Avatar();
+        $avatar->nickname = $nickname;
+        $avatar->exp = 0;
+        $avatar->save();
 
         if($avatar){
             
@@ -40,7 +41,6 @@ class AvatarController extends Controller
             ], 404);
 
         }
-
 
     }
 }

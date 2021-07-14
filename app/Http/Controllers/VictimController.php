@@ -22,11 +22,17 @@ class VictimController extends Controller
         $evolution = $request->input('evolution');
 
         $countVictims = Victim::where('user_id', $user_id)->count();
-        if($countVictims > 2) return "ERROR ya esta 3 veces ";
+        if($countVictims > 2) return "error is already 3 times";
 
-        $avatar = NULL;
         $user = User::where('id', $user_id)->first();
+        $avatar = Avatar::where('id', $avatar_id)->first();
 
+        if(!$user || !$avatar){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'the victim cannot be added'
+            ]);
+        }
 
         $victim = new Victim;
         $victim->user()->associate($user->id);
@@ -35,6 +41,17 @@ class VictimController extends Controller
         $victim->evolution = $evolution;
         $victim->save();
 
-       // return new VictimaResource($victim);
+        if($victim){
+            return response()->json([
+                'status' => 'success',
+                'message' => 'the victim was successfully added'
+            ], 201);
+        }else{
+            return response()->json([
+                'status' => 'error',
+                'message' => 'the victim cannot be added'
+            ]);
+        }
+       
     }
 }
