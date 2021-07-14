@@ -19,7 +19,6 @@ class CreateGymsTable extends Migration
             $table->string('description');
             $table->string('medal');
             $table->string('leader')->default('none');
-            $table->string('mascot')->default('none');
             $table->string('points')->default('0');
             $table->string('members')->default('0');
             $table->string('ranking')->default('999');

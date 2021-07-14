@@ -31,7 +31,7 @@ class VictimController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'the victim cannot be added'
-            ]);
+            ], 404);
         }
 
         $victim = new Victim;
@@ -50,7 +50,7 @@ class VictimController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'the victim cannot be added'
-            ]);
+            ], 404);
         }
        
     }
