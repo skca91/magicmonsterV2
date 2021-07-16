@@ -145,6 +145,48 @@
                     }
                 }
             }
+        },
+        "/api/avatar": {
+            "post": {
+                "tags": [
+                    "avatar"
+                ],
+                "summary": "Add avatar",
+                "operationId": "afd40208fd667a1450631f8360899d10",
+                "parameters": [
+                    {
+                        "name": "nickname",
+                        "in": "path",
+                        "description": "nickname avatar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Avatar created successfully"
+                    },
+                    "404": {
+                        "description": "Avatar not Created"
+                    }
+                }
+            }
+        },
+        "/api/gym": {
+            "get": {
+                "tags": [
+                    "gym"
+                ],
+                "summary": "List of gyms",
+                "operationId": "7546c42521f39bab25e14cd5141b8bb3",
+                "responses": {
+                    "200": {
+                        "description": "Listed gyms"
+                    }
+                }
+            }
         }
     },
     "security": [
