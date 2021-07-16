@@ -13,6 +13,32 @@ class AvatarController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+    * @OA\Post(
+    *     path="/api/avatar",
+    *     summary="Add avatar",
+    *     tags={"avatar"},
+
+     *   @OA\Parameter(
+     *      name="nickname",
+     *      in="path",
+     *      description="nickname avatar",
+     *      required=true,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Avatar created successfully"
+    *     ),
+    *     @OA\Response(
+    *         response="404",
+    *         description="Avatar not Created"
+    *     ),
+    * )
+    */
+
     public function addAvatar(Request $request){
 
         $this->validate($request, [
