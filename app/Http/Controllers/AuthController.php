@@ -7,12 +7,58 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
+
+/**
+* @OA\Info(title="API Magic Monster", version="1.0")
+*
+* @OA\Server(url="http://127.0.0.1:8000")
+*/
+
 class AuthController extends Controller
 {
+    /**
+    * @OA\Post(
+    *     path="/api/auth/signup",
+    *     summary="Register new users",
+    *     tags={"sign up"},
 
-     /**
-     *  Registrar nuevo usuario
-     */
+     *   @OA\Parameter(
+     *      name="name",
+     *      in="path",
+     *      description="User name",
+     *      required=true,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+     *  @OA\Parameter(
+     *      name="email",
+     *      in="path",
+     *      description="User email",
+     *      required=true,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+     * @OA\Parameter(
+     *      name="password",
+     *      in="path",
+     *      description="User password",
+     *      required=true,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+    *     @OA\Response(
+    *         response=201,
+    *         description="Successfully created user"
+    *     ),
+    *     @OA\Response(
+    *         response="404",
+    *         description="Error user not created"
+    *     ),
+    * )
+    */
 
     public function signUp(Request $request){
 
@@ -34,9 +80,40 @@ class AuthController extends Controller
         ], 201);
     }
 
-    /**
-     * Iniciar sesion
-     */
+     /**
+    * @OA\Post(
+    *     path="/api/auth/login",
+    *     summary="Login users",
+    *     tags={"login"},
+
+     *   @OA\Parameter(
+     *      name="username",
+     *      in="path",
+     *      description="User name",
+     *      required=true,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+     * @OA\Parameter(
+     *      name="password",
+     *      in="path",
+     *      description="User password",
+     *      required=true,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Login user"
+    *     ),
+    *     @OA\Response(
+    *         response="401",
+    *         description="Unauthorized"
+    *     ),
+    * )
+    */
 
     public function login(Request $request)
     {
@@ -67,9 +144,26 @@ class AuthController extends Controller
         ]);
     }
 
-     /**
-     * Cerrar sesion
-     */
+      /**
+    * @OA\Get(
+    *     path="/api/auth/logout",
+    *     summary="Logout user",
+    *     tags={"logout"},
+     * @OA\Parameter(
+     *      name="token",
+     *      in="path",
+     *      description="token",
+     *      required=true,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successfully logged out"
+    *     ),
+    * )
+    */
     public function logout(Request $request)
     {
         $request->user()->token()->revoke();
@@ -80,8 +174,29 @@ class AuthController extends Controller
     }
 
     /**
-     * Obtener el objeto User como json
-     */
+    * @OA\Get(
+    *     path="/api/auth/user",
+    *     summary="Info user",
+    *     tags={"user"},
+     * @OA\Parameter(
+     *      name="token",
+     *      in="path",
+     *      description="token",
+     *      required=true,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Info user showed"
+    *     ),
+     *  @OA\Response(
+    *         response=401,
+    *         description="Unauthenticated"
+    *     ),
+    * )
+    */
     public function user(Request $request)
     {
         return response()->json($request->user());

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
 use Laravel\Passport\PassportServiceProvider;
 
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
