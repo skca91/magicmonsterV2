@@ -24,7 +24,7 @@ Route::group([
     });
 });
 
-Route::post('/victima', [VictimController::class, 'addVictim']);
+Route::post('/victim', [VictimController::class, 'addVictim']);
 
 Route::get('/gym', [GymController::class, 'index']);
 
