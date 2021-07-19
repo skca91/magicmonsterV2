@@ -26,6 +26,7 @@ Route::group([
 
 Route::post('/victim', [VictimController::class, 'addVictim']);
 
-Route::get('/gym', [GymController::class, 'index']);
+Route::get('/gyms', [GymController::class, 'index']);
+Route::get('/gym', [GymController::class, 'showGym']);
 
 Route::post('/avatar', [AvatarController::class, 'addAvatar']);
