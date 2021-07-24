@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\TournamentController;
+use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\VictimController;
 
 use Illuminate\Http\Request;
@@ -30,5 +31,7 @@ Route::get('/gyms', [GymController::class, 'index']);
 Route::get('/gym', [GymController::class, 'showGym']);
 
 Route::get('/tournaments', [TournamentController::class, 'index']);
+
+Route::get('/competitions', [CompetitionController::class, 'index']);
 
 Route::post('/avatar', [AvatarController::class, 'addAvatar']);
