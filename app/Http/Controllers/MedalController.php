@@ -13,6 +13,17 @@ class MedalController extends Controller
         $this->middleware('auth');
     }
 
+      /**
+    * @OA\Get(
+    *     path="/api/mymedals",
+    *     summary="List of my medals",
+    *     tags={"medals"},
+    *     @OA\Response(
+    *         response=200,
+    *         description="List of my medals"
+    *     ),
+    * )
+    */
     public function myMedals(){
 
         $user = Auth::user();

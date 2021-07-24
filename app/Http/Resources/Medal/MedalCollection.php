@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources\Medal;
 
+use App\Models\Gym;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+
 
 class MedalCollection extends ResourceCollection
 {
@@ -16,7 +18,7 @@ class MedalCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'gym' => $this->gym_id,
+            'gym' => Gym::where('id', $this->gym_id)->first()->nickname,
         ];
     }
 

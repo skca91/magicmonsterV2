@@ -6,6 +6,7 @@ use App\Http\Controllers\GymController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\MedalController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\VictimController;
 
 use Illuminate\Http\Request;
@@ -38,3 +39,5 @@ Route::get('/competitions', [CompetitionController::class, 'index']);
 Route::post('/avatar', [AvatarController::class, 'addAvatar']);
 
 Route::get('/mymedals', [MedalController::class, 'myMedals']);
+
+Route::get('/globalranking', [RankingController::class, 'topGlobalRanking']);
