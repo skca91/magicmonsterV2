@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class TournamentCollection extends ResourceCollection
 {
+
+    public static $wrap = 'tournaments';
     /**
      * Transform the resource collection into an array.
      *
