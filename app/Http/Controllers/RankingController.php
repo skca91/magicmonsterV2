@@ -51,7 +51,7 @@ class RankingController extends Controller
         });                         
 
         return response()->json([
-            'position'=> $position+1
+            'position'=> $position + 1
         ]);
     }
 }

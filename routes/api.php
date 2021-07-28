@@ -41,4 +41,5 @@ Route::post('/avatar', [AvatarController::class, 'addAvatar']);
 Route::get('/mymedals', [MedalController::class, 'myMedals']);
 
 Route::get('/globalranking', [RankingController::class, 'topGlobalRanking']);
+
 Route::get('/myglobalranking', [RankingController::class, 'myGlobalRanking']);
